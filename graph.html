@@ -42,13 +42,13 @@
 
     <script>
         var url = "https://pomber.github.io/covid19/timeseries.json";
-        var casos, italia, austria, eslovenia, francia, suiza;
+        var casos, italia, austria, grecia, francia, suiza;
         var marzo = [];
         var marzo_italia = [];
         var marzo_austria = [];
-        var marzo_eslovenia = [];
+        var marzo_grecia = [];
         var marzo_francia = [];
-        var marzo_suiza = [];
+        var marzo_alemania = [];
 
         function preload() {
             casos = loadJSON(url);
@@ -63,9 +63,9 @@
 
             italia = casos.Italy;
             austria = casos.Austria;
-            eslovenia = casos.Slovenia;
+            eslovenia = casos.Greece;
             francia = casos.France;
-            suiza = casos.Switzerland;
+            suiza = casos.Germany;
 
             for (let x = 0; x < italia.length; x++) {
                 if (italia[x].date.includes("-3-")) {
@@ -79,9 +79,9 @@
                 }
             }
 
-            for (let x = 0; x < eslovenia.length; x++) {
-                if (eslovenia[x].date.includes("-3-")) {
-                    marzo_eslovenia.push(eslovenia[x].recovered);
+            for (let x = 0; x < grecia.length; x++) {
+                if (grecia[x].date.includes("-3-")) {
+                    marzo_grecia.push(grecia[x].recovered);
                 }
             }
 
@@ -91,9 +91,9 @@
                 }
             }
 
-            for (let x = 0; x < suiza.length; x++) {
-                if (suiza[x].date.includes("-3-")) {
-                    marzo_suiza.push(suiza[x].recovered);
+            for (let x = 0; x < alemania.length; x++) {
+                if (alemania[x].date.includes("-3-")) {
+                    marzo_alemania.push(alemania[x].recovered);
                 }
             }
 
@@ -110,13 +110,13 @@
                         lineTension: 0,
                         data: marzo_austria
                     }, {
-                        label: 'Eslovenia',
+                        label: 'Grecia',
                         backgroundColor: 'rgba(77,175,74,.1)',
                         borderColor: 'rgb(77,175,74)',
                         borderWidth: 2,
                         pointRadius: 2,
                         lineTension: 0,
-                        data: marzo_eslovenia
+                        data: marzo_grecia
                     }, {
                         label: 'Francia',
                         backgroundColor: 'rgba(55,126,184,.1)',
@@ -134,13 +134,13 @@
                         lineTension: 0,
                         data: marzo_italia
                     }, {
-                        label: 'Suiza',
+                        label: 'Alemania',
                         backgroundColor: 'rgba(255,127,0,.1)',
                         borderColor: 'rgb(255,127,0)',
                         borderWidth: 2,
                         pointRadius: 2,
                         lineTension: 0,
-                        data: marzo_suiza
+                        data: marzo_alemania
                     }]
                 },
                 options: {
